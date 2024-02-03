@@ -1,0 +1,144 @@
+:root {
+  --ff-poppins: "Poppins", sans-serif;
+
+  --fw-light: 200;
+  --fw-normal: 400;
+  --fw-bold: 900;
+
+  --fs-header: 38px;
+  --fs-header-p: 17px;
+  --fs-body: 17px;
+  --fs-section: 21px;
+
+  --clr-neutral-100: hsl(0, 0%, 98%);
+  --clr-neutral-400: hsl(229, 6%, 66%);
+  --clr-neutral-900: hsl(234, 12%, 34%);
+
+  --clr-red: hsl(0, 78%, 62%);
+  --clr-cyan: hsl(180, 62%, 55%);
+  --clr-orange: hsl(34, 97%, 64%);
+  --clr-blue: hsl(212, 86%, 64%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-poppins);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-body);
+  color: var(--clr-neutral-400);
+  padding-block-end: 5rem;
+  line-height: 1.2;
+}
+
+header {
+  text-align: center;
+  margin-block: 6rem;
+  /* border: 1px solid red; */
+}
+
+h1 {
+  font-size: var(--fs-header);
+}
+
+h1 > span {
+  font-weight: var(--fw-light);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-neutral-900);
+}
+
+.wrapper {
+  max-width: 1440px;
+  padding-inline: 2rem;
+  margin-inline: auto;
+}
+
+.wrapper-narrow {
+  max-width: 550px;
+}
+
+main {
+  /* border: 1px solid blue; */
+}
+
+.layout-container {
+  --gap: 1.5rem;
+  gap: var(--gap);
+  display: grid;
+  grid-auto-columns: 1fr;
+  line-height: 1.7;
+}
+
+.layout-container > * {
+  flex: 1;
+}
+
+.card {
+  border-top: 5px solid;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 16px -4px rgb(0 50 200/0.2);
+}
+
+.card-title {
+  font-size: var(--fs-section);
+  margin: 0;
+}
+
+.card-img {
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+}
+
+.border-cyan {
+  border-color: var(--clr-cyan);
+}
+
+.border-red {
+  border-color: var(--clr-red);
+}
+
+.border-orange {
+  border-color: var(--clr-orange);
+}
+
+.border-blue {
+  border-color: var(--clr-blue);
+}
+
+/* tablet and up */
+@media (min-width: 800px) {
+  .layout-container {
+    grid-template-areas:
+      "... two   ..."
+      "one two   four"
+      "one three four"
+      "... three ...";
+  }
+
+  .layout-container > :nth-child(1) {
+    grid-area: one;
+  }
+
+  .layout-container > :nth-child(2) {
+    grid-area: two;
+  }
+
+  .layout-container > :nth-child(3) {
+    grid-area: three;
+  }
+
+  .layout-container > :nth-child(4) {
+    grid-area: four;
+  }
+}
